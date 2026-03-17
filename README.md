@@ -4,7 +4,6 @@
 Ferramentas: SQL (SQLite) · Power BI · Análise de Causa Raiz  
 Tipo: Case com dados fictícios baseado em problemas reais de distribuição
 
----
 
 ## Contexto
 
@@ -19,7 +18,6 @@ O gestor de operações se deparou com duas reclamações simultâneas que parec
 
 A hipótese inicial apontava para uma causa simples: a Distrimax tratava todos os SKUs da mesma forma, com o mesmo prazo de reposição e o mesmo nível de estoque mínimo, sem considerar que 20% dos SKUs respondiam por 80% da receita.
 
----
 
 ## Base de Dados
 
@@ -32,7 +30,6 @@ A base foi construída com dados fictícios mas realistas, estruturada em 4 tabe
 | `fato_estoque_ok` | Snapshot semanal de estoque por SKU e região com status | 15.900 |
 | `dim_meta_ok` | Política ideal de reposição por curva ABC | 3 |
 
----
 
 ## Análise SQL
 
@@ -115,7 +112,6 @@ GROUP BY s.curva_abc, m.estoque_minimo_recomendado_dias,
 ORDER BY s.curva_abc;
 ```
 
----
 
 ## Diagnóstico
 
@@ -140,7 +136,6 @@ Análise de causa raiz da ruptura nos itens A:
 | Excesso itens C | 4 | 3 | 4 | 48 |
 | Política uniforme | 5 | 4 | 5 | 100 |
 
----
 
 ## Dashboard Power BI
 
@@ -165,7 +160,6 @@ Impacto projetado com nova política:
 - Curva B: cobertura ajusta de 79 para 22 dias
 - Curva C: cobertura reduz de 1.363 para 12 dias
 
----
 
 ## Solução — Nova Política de Reposição
 
@@ -181,7 +175,6 @@ Impacto estimado:
 - Redução de estoque curva C: 23%
 - Redução de ruptura curva A: 18%
 
----
 
 ## Estrutura do Repositório
 
