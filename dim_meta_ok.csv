@@ -1,0 +1,4 @@
+﻿curva_abc,estoque_minimo_recomendado_dias,frequencia_revisao,politica_reposicao,meta_cobertura_dias
+A,30 a 45 dias,Semanal,Reposição contínua por demanda,45
+B,15 a 30 dias,Quinzenal,Reposição por ponto de pedido,30
+C,7 a 15 dias,Mensal,Reposição periódica mínima,15

@@ -1,0 +1,101 @@
+﻿sku_id,descricao,categoria,fornecedor,custo_unitario,preco_venda,curva_abc,dias_reposicao,estoque_minimo_atual
+SKU-001,Produto A-01 Higiene Pessoal,Higiene Pessoal,Nívea,8.93,13.24,A,8,19
+SKU-002,Produto A-02 Higiene Pessoal,Higiene Pessoal,Unilever,33.04,55.1,A,7,28
+SKU-003,Produto A-03 Higiene Pessoal,Higiene Pessoal,Colgate,11.47,16.86,A,11,15
+SKU-004,Produto A-04 Limpeza,Limpeza,Reckitt,34.49,55.54,A,10,22
+SKU-005,Produto A-05 Cuidado Corporal,Cuidado Corporal,Natura,37.95,53.2,A,8,28
+SKU-006,Produto A-06 Cuidado Corporal,Cuidado Corporal,Unilever,13.75,23.2,A,9,18
+SKU-007,Produto A-07 Cuidado Oral,Cuidado Oral,Johnson & Johnson,11.58,19.16,A,11,23
+SKU-008,Produto A-08 Higiene Pessoal,Higiene Pessoal,Colgate,35.0,54.63,A,10,17
+SKU-009,Produto A-09 Cuidado Corporal,Cuidado Corporal,Nívea,38.69,61.35,A,9,21
+SKU-010,Produto A-10 Higiene Pessoal,Higiene Pessoal,Johnson & Johnson,9.7,14.24,A,9,17
+SKU-011,Produto A-11 Limpeza,Limpeza,P&G,40.06,60.65,A,10,26
+SKU-012,Produto A-12 Cuidado Corporal,Cuidado Corporal,Colgate,21.15,33.86,A,12,17
+SKU-013,Produto A-13 Limpeza,Limpeza,Natura,27.76,40.9,A,10,27
+SKU-014,Produto A-14 Limpeza,Limpeza,Johnson & Johnson,33.33,55.09,A,7,22
+SKU-015,Produto A-15 Higiene Pessoal,Higiene Pessoal,Colgate,37.79,57.45,A,7,21
+SKU-016,Produto A-16 Cuidado Corporal,Cuidado Corporal,P&G,15.87,24.59,A,12,29
+SKU-017,Produto A-17 Cuidado Corporal,Cuidado Corporal,Nívea,13.17,21.38,A,11,23
+SKU-018,Produto A-18 Cuidado Oral,Cuidado Oral,Colgate,41.22,62.65,A,8,19
+SKU-019,Produto A-19 Cuidado Oral,Cuidado Oral,Nívea,11.36,16.06,A,7,19
+SKU-020,Produto A-20 Limpeza,Limpeza,Reckitt,37.31,56.96,A,7,27
+SKU-021,Produto B-21 Cuidado Oral,Cuidado Oral,Nívea,15.58,24.79,B,10,41
+SKU-022,Produto B-22 Higiene Pessoal,Higiene Pessoal,Nívea,18.63,27.22,B,14,44
+SKU-023,Produto B-23 Cuidado Corporal,Cuidado Corporal,Nívea,7.23,10.34,B,17,20
+SKU-024,Produto B-24 Cuidado Corporal,Cuidado Corporal,Johnson & Johnson,24.44,37.36,B,18,23
+SKU-025,Produto B-25 Cuidado Corporal,Cuidado Corporal,Natura,21.83,31.7,B,13,24
+SKU-026,Produto B-26 Limpeza,Limpeza,Colgate,15.79,24.22,B,18,20
+SKU-027,Produto B-27 Cuidado Corporal,Cuidado Corporal,Natura,14.77,19.7,B,15,45
+SKU-028,Produto B-28 Limpeza,Limpeza,Nívea,6.16,9.63,B,11,22
+SKU-029,Produto B-29 Cuidado Oral,Cuidado Oral,P&G,21.32,33.97,B,18,44
+SKU-030,Produto B-30 Limpeza,Limpeza,Colgate,18.2,28.83,B,12,28
+SKU-031,Produto B-31 Cuidado Oral,Cuidado Oral,Natura,24.29,38.35,B,13,42
+SKU-032,Produto B-32 Cuidado Oral,Cuidado Oral,Reckitt,24.9,37.22,B,17,36
+SKU-033,Produto B-33 Higiene Pessoal,Higiene Pessoal,Colgate,9.96,13.14,B,10,38
+SKU-034,Produto B-34 Limpeza,Limpeza,Unilever,16.77,21.84,B,10,27
+SKU-035,Produto B-35 Higiene Pessoal,Higiene Pessoal,Nívea,22.19,29.32,B,13,28
+SKU-036,Produto B-36 Cuidado Oral,Cuidado Oral,Johnson & Johnson,9.28,12.43,B,17,27
+SKU-037,Produto B-37 Cuidado Oral,Cuidado Oral,Reckitt,21.15,28.7,B,11,41
+SKU-038,Produto B-38 Cuidado Corporal,Cuidado Corporal,Nívea,13.47,19.4,B,10,41
+SKU-039,Produto B-39 Higiene Pessoal,Higiene Pessoal,P&G,6.21,9.43,B,11,27
+SKU-040,Produto B-40 Limpeza,Limpeza,Reckitt,15.73,21.11,B,12,28
+SKU-041,Produto B-41 Limpeza,Limpeza,Unilever,22.49,29.75,B,18,23
+SKU-042,Produto B-42 Higiene Pessoal,Higiene Pessoal,Reckitt,24.38,38.47,B,13,25
+SKU-043,Produto B-43 Cuidado Oral,Cuidado Oral,Reckitt,14.63,22.81,B,10,25
+SKU-044,Produto B-44 Higiene Pessoal,Higiene Pessoal,Reckitt,24.71,34.09,B,17,29
+SKU-045,Produto B-45 Cuidado Oral,Cuidado Oral,Nívea,8.1,11.25,B,10,38
+SKU-046,Produto B-46 Higiene Pessoal,Higiene Pessoal,Johnson & Johnson,19.96,26.29,B,17,36
+SKU-047,Produto B-47 Limpeza,Limpeza,Colgate,6.14,8.92,B,12,22
+SKU-048,Produto B-48 Higiene Pessoal,Higiene Pessoal,P&G,18.5,25.36,B,11,38
+SKU-049,Produto B-49 Higiene Pessoal,Higiene Pessoal,Natura,17.39,24.79,B,18,30
+SKU-050,Produto B-50 Limpeza,Limpeza,P&G,18.39,25.64,B,14,32
+SKU-051,Produto C-51 Cuidado Corporal,Cuidado Corporal,Reckitt,7.94,11.74,C,15,60
+SKU-052,Produto C-52 Higiene Pessoal,Higiene Pessoal,Natura,2.95,3.73,C,18,68
+SKU-053,Produto C-53 Higiene Pessoal,Higiene Pessoal,Johnson & Johnson,13.43,17.6,C,16,88
+SKU-054,Produto C-54 Cuidado Corporal,Cuidado Corporal,Unilever,9.95,14.89,C,24,93
+SKU-055,Produto C-55 Cuidado Corporal,Cuidado Corporal,Unilever,14.11,17.37,C,16,76
+SKU-056,Produto C-56 Higiene Pessoal,Higiene Pessoal,P&G,11.65,14.52,C,18,98
+SKU-057,Produto C-57 Cuidado Corporal,Cuidado Corporal,Reckitt,4.65,6.46,C,18,92
+SKU-058,Produto C-58 Cuidado Corporal,Cuidado Corporal,Reckitt,13.77,20.02,C,15,100
+SKU-059,Produto C-59 Cuidado Corporal,Cuidado Corporal,Natura,2.57,3.34,C,16,100
+SKU-060,Produto C-60 Limpeza,Limpeza,Unilever,11.64,15.89,C,20,95
+SKU-061,Produto C-61 Higiene Pessoal,Higiene Pessoal,Unilever,2.98,4.37,C,16,94
+SKU-062,Produto C-62 Cuidado Corporal,Cuidado Corporal,Natura,9.57,11.91,C,16,62
+SKU-063,Produto C-63 Cuidado Corporal,Cuidado Corporal,Natura,13.69,19.7,C,14,117
+SKU-064,Produto C-64 Limpeza,Limpeza,Colgate,10.87,15.22,C,19,109
+SKU-065,Produto C-65 Cuidado Oral,Cuidado Oral,P&G,14.66,20.89,C,17,115
+SKU-066,Produto C-66 Limpeza,Limpeza,Natura,13.46,16.25,C,25,119
+SKU-067,Produto C-67 Cuidado Oral,Cuidado Oral,P&G,12.43,18.14,C,17,77
+SKU-068,Produto C-68 Higiene Pessoal,Higiene Pessoal,P&G,6.97,8.44,C,21,74
+SKU-069,Produto C-69 Cuidado Oral,Cuidado Oral,Unilever,6.55,9.47,C,17,74
+SKU-070,Produto C-70 Limpeza,Limpeza,Natura,7.18,9.22,C,15,109
+SKU-071,Produto C-71 Cuidado Corporal,Cuidado Corporal,Unilever,10.34,13.65,C,22,81
+SKU-072,Produto C-72 Higiene Pessoal,Higiene Pessoal,Unilever,13.4,17.13,C,23,76
+SKU-073,Produto C-73 Higiene Pessoal,Higiene Pessoal,Colgate,9.76,12.72,C,19,87
+SKU-074,Produto C-74 Higiene Pessoal,Higiene Pessoal,Nívea,7.01,9.62,C,18,62
+SKU-075,Produto C-75 Cuidado Oral,Cuidado Oral,Nívea,2.02,2.98,C,22,103
+SKU-076,Produto C-76 Limpeza,Limpeza,Natura,6.73,8.22,C,24,118
+SKU-077,Produto C-77 Cuidado Corporal,Cuidado Corporal,Natura,10.62,13.14,C,18,92
+SKU-078,Produto C-78 Cuidado Oral,Cuidado Oral,P&G,6.24,8.79,C,22,68
+SKU-079,Produto C-79 Cuidado Oral,Cuidado Oral,P&G,10.64,13.98,C,25,117
+SKU-080,Produto C-80 Cuidado Corporal,Cuidado Corporal,P&G,7.28,10.56,C,18,78
+SKU-081,Produto C-81 Cuidado Oral,Cuidado Oral,Reckitt,12.21,16.87,C,19,89
+SKU-082,Produto C-82 Cuidado Oral,Cuidado Oral,Nívea,10.78,14.59,C,25,70
+SKU-083,Produto C-83 Higiene Pessoal,Higiene Pessoal,Unilever,5.69,7.96,C,23,81
+SKU-084,Produto C-84 Limpeza,Limpeza,Unilever,10.75,13.62,C,17,69
+SKU-085,Produto C-85 Higiene Pessoal,Higiene Pessoal,Reckitt,5.18,6.95,C,15,89
+SKU-086,Produto C-86 Limpeza,Limpeza,P&G,11.34,14.91,C,20,75
+SKU-087,Produto C-87 Higiene Pessoal,Higiene Pessoal,Reckitt,13.6,19.83,C,15,109
+SKU-088,Produto C-88 Limpeza,Limpeza,Unilever,4.29,6.38,C,22,89
+SKU-089,Produto C-89 Limpeza,Limpeza,Reckitt,13.93,17.22,C,16,111
+SKU-090,Produto C-90 Cuidado Corporal,Cuidado Corporal,Nívea,14.35,21.06,C,23,112
+SKU-091,Produto C-91 Cuidado Oral,Cuidado Oral,Johnson & Johnson,12.8,17.46,C,16,107
+SKU-092,Produto C-92 Cuidado Oral,Cuidado Oral,Johnson & Johnson,7.85,11.19,C,24,77
+SKU-093,Produto C-93 Cuidado Oral,Cuidado Oral,Natura,10.15,13.02,C,15,105
+SKU-094,Produto C-94 Limpeza,Limpeza,P&G,5.53,7.17,C,22,65
+SKU-095,Produto C-95 Limpeza,Limpeza,Unilever,5.01,7.06,C,25,73
+SKU-096,Produto C-96 Cuidado Oral,Cuidado Oral,P&G,7.3,9.95,C,20,63
+SKU-097,Produto C-97 Cuidado Oral,Cuidado Oral,Johnson & Johnson,7.06,10.1,C,25,61
+SKU-098,Produto C-98 Cuidado Oral,Cuidado Oral,Reckitt,8.2,12.16,C,18,108
+SKU-099,Produto C-99 Cuidado Oral,Cuidado Oral,P&G,9.0,12.78,C,23,117
+SKU-100,Produto C-100 Cuidado Oral,Cuidado Oral,Natura,4.85,6.45,C,14,84
