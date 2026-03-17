@@ -1,31 +1,27 @@
-# 📦 Estoque Parado vs. Ruptura de Vendas — Case Distrimax
+# Estoque Parado vs. Ruptura de Vendas — Case Distrimax
 
-> **Área:** Business Intelligence · Melhoria Contínua  
-> **Ferramentas:** SQL (SQLite) · Power BI · Análise de Causa Raiz  
-> **Tipo:** Case com dados fictícios baseado em problemas reais de distribuição
-
----
-
-## 🏢 Contexto
-
-A **Distrimax** é uma distribuidora fictícia de produtos de higiene e limpeza com operação em 3 regiões (Sul, Sudeste e Centro-Oeste), faturamento anual de R$ 18M e aproximadamente 850 SKUs ativos, atendendo redes de farmácias e mercados.
-
-O gestor de operações identificou duas reclamações simultâneas que pareciam contraditórias:
-
-- O time **comercial** relatava perda de vendas por falta de produto — itens que sumiam do estoque antes do pedido chegar
-- O time **financeiro** reclamava que o capital estava "preso" em estoque — produtos sem giro ocupando espaço e dinheiro
+Área: Business Intelligence · Melhoria Contínua  
+Ferramentas: SQL (SQLite) · Power BI · Análise de Causa Raiz  
+Tipo: Case com dados fictícios baseado em problemas reais de distribuição
 
 ---
 
-## ❓ Problema
+## Contexto
 
-> Como uma empresa pode ter **estoque em excesso** e **ruptura de vendas** ao mesmo tempo?
+A Distrimax é uma distribuidora fictícia de produtos de higiene e limpeza com operação em três regiões do Brasil, Sul, Nordeste e Sudeste, faturamento anual de R$ 18 milhões e aproximadamente 850 SKUs ativos, atendendo redes de farmácias e mercados.
 
-A hipótese inicial: a empresa trata todos os SKUs da mesma forma — mesmo prazo de reposição e mesmo nível de estoque mínimo — ignorando que 20% dos SKUs respondem por 80% da receita.
+O gestor de operações se deparou com duas reclamações simultâneas que pareciam se contradizer:
+
+• O time comercial relatava perda de vendas por falta de produto, itens que esgotavam antes do pedido de reposição chegar. 
+• O time financeiro reclamava que o capital estava parado em estoque, produtos sem giro ocupando espaço e dinheiro sem retorno.
+
+**Como uma empresa pode ter excesso de estoque e ruptura de vendas ao mesmo tempo?**
+
+A hipótese inicial apontava para uma causa simples: a Distrimax tratava todos os SKUs da mesma forma, com o mesmo prazo de reposição e o mesmo nível de estoque mínimo, sem considerar que 20% dos SKUs respondiam por 80% da receita.
 
 ---
 
-## 🗄️ Base de Dados
+## Base de Dados
 
 A base foi construída com dados fictícios mas realistas, estruturada em 4 tabelas:
 
@@ -38,12 +34,12 @@ A base foi construída com dados fictícios mas realistas, estruturada em 4 tabe
 
 ---
 
-## 🔍 Análise SQL
+## Análise SQL
 
 As queries foram desenvolvidas no SQLiteOnline e documentadas com explicação de cada técnica utilizada.
 
 ### Query 1 — Curva ABC
-Classificação dos SKUs por participação na receita total, usando **window functions** para calcular o percentual acumulado.
+Classificação dos SKUs por participação na receita total, usando window functions para calcular o percentual acumulado.
 
 ```sql
 SELECT
@@ -65,7 +61,7 @@ ORDER BY receita_total DESC;
 ```
 
 ### Query 2 — Ranking de Rupturas
-Frequência de status crítico e ruptura por SKU e região, usando **CASE WHEN** para contar ocorrências por tipo de status.
+Frequência de status crítico e ruptura por SKU e região, usando CASE WHEN para contar ocorrências por tipo de status.
 
 ```sql
 SELECT
@@ -84,7 +80,7 @@ ORDER BY qtd_ruptura DESC;
 ```
 
 ### Query 3 — Receita Perdida
-Impacto financeiro das rupturas por curva ABC e categoria, revelando que **itens C nunca perdem receita** (estoque sempre em excesso).
+Impacto financeiro das rupturas por curva ABC e categoria, revelando que itens C nunca perdem receita, pois o estoque está sempre em excesso.
 
 ```sql
 SELECT
@@ -101,7 +97,7 @@ ORDER BY total_perdido DESC;
 ```
 
 ### Query 4 — Estoque Atual vs. Política Ideal
-Comparativo entre a cobertura praticada e a meta recomendada — **a query que prova o desalinhamento da política atual**.
+Comparativo entre a cobertura praticada e a meta recomendada, a query que prova o desalinhamento da política atual.
 
 ```sql
 SELECT
@@ -121,10 +117,10 @@ ORDER BY s.curva_abc;
 
 ---
 
-## 🔬 Diagnóstico — Ferramentas de Qualidade
+## Diagnóstico
 
 ### Curva ABC
-Os 20 SKUs da curva A representam **~80% da receita total**, mas operam com cobertura média de apenas **10 dias** — muito abaixo da meta de 30 a 45 dias.
+Os 20 SKUs da curva A representam aproximadamente 80% da receita total, mas operam com cobertura média de apenas 10 dias, muito abaixo da meta de 30 a 45 dias.
 
 ### Diagrama de Ishikawa
 Análise de causa raiz da ruptura nos itens A:
@@ -146,30 +142,32 @@ Análise de causa raiz da ruptura nos itens A:
 
 ---
 
-## 📊 Dashboard Power BI
+## Dashboard Power BI
 
 ### Página 1 — Diagnóstico
 
 ![Dashboard Diagnóstico](assets/dashboard_diagnostico.png)
 
-**Principais achados:**
-- **R$ 194Mi** em receita perdida por ruptura no ano
-- Curva A com **10 dias** de cobertura média contra meta de 30-45 dias
-- Curva C com **1.363 dias** de cobertura — capital completamente imobilizado
-- Categoria Limpeza concentra a maior perda: **R$ 64Mi**
+Principais achados:
+
+- R$ 194Mi em receita perdida por ruptura no ano
+- Curva A com 10 dias de cobertura média contra meta de 30 a 45 dias
+- Curva C com 1.363 dias de cobertura, capital completamente imobilizado
+- Categoria Limpeza concentra a maior perda: R$ 64Mi
 
 ### Página 2 — Solução
 
 ![Dashboard Solução](assets/dashboard_solucao.png)
 
-**Impacto projetado com nova política:**
-- Curva A: cobertura sobe de 10 para **38 dias**
-- Curva B: cobertura ajusta de 79 para **22 dias**
-- Curva C: cobertura reduz de 1.363 para **12 dias**
+Impacto projetado com nova política:
+
+- Curva A: cobertura sobe de 10 para 38 dias
+- Curva B: cobertura ajusta de 79 para 22 dias
+- Curva C: cobertura reduz de 1.363 para 12 dias
 
 ---
 
-## ✅ Solução — Nova Política de Reposição
+## Solução — Nova Política de Reposição
 
 | Curva | Estoque Mínimo | Frequência de Revisão | Política | Meta (dias) |
 |-------|---------------|----------------------|----------|-------------|
@@ -177,14 +175,15 @@ Análise de causa raiz da ruptura nos itens A:
 | B | 15 a 30 dias | Quinzenal | Reposição por ponto de pedido | 30 |
 | C | 7 a 15 dias | Mensal | Reposição periódica mínima | 15 |
 
-### Impacto estimado
-- **Receita recuperável:** ~78% da receita perdida nos itens A
-- **Redução de estoque curva C:** -23%
-- **Redução de ruptura curva A:** -18%
+Impacto estimado:
+
+- Receita recuperável: aproximadamente 78% da receita perdida nos itens A
+- Redução de estoque curva C: 23%
+- Redução de ruptura curva A: 18%
 
 ---
 
-## 📁 Estrutura do Repositório
+## Estrutura do Repositório
 
 ```
 distrimax-case/
@@ -204,7 +203,8 @@ distrimax-case/
 
 ---
 
-## 👤 Autor
+## Autor
 
-Desenvolvido como case de portfólio em BI e Melhoria Contínua.  
-[LinkedIn](#) · [Portfólio](#)
+Desenvolvido como case de portfólio em BI e Melhoria Contínua por Monithelly Simões.
+
+[LinkedIn](https://www.linkedin.com/in/monithellysimoes)
