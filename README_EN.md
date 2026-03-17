@@ -1,49 +1,44 @@
-# 📦 Dead Stock vs. Stockouts — Distrimax Case Study
+# Dead Stock vs. Stockouts — Distrimax Case Study
 
-> **Area:** Business Intelligence · Continuous Improvement  
-> **Tools:** SQL (SQLite) · Power BI · Root Cause Analysis  
-> **Type:** Portfolio case study with fictitious data based on real distribution problems
-
----
-
-## 🏢 Context
-
-**Distrimax** is a fictitious distributor of hygiene and cleaning products operating across 3 regions (South, Southeast, and Midwest of Brazil), with annual revenue of R$ 18M and approximately 850 active SKUs, serving pharmacy and supermarket chains.
-
-The operations manager identified two simultaneous complaints that seemed contradictory:
-
-- The **sales team** reported losing sales due to out-of-stock items — products running out before replenishment orders arrived
-- The **finance team** complained that capital was "trapped" in inventory — slow-moving products taking up space and money
+Area: Business Intelligence · Continuous Improvement  
+Tools: SQL (SQLite) · Power BI · Root Cause Analysis  
+Type: Case study with fictitious data based on real distribution problems
 
 ---
 
-## ❓ Problem Statement
+## Context
 
-> How can a company have **excess inventory** and **stockouts** at the same time?
+Distrimax is a fictitious distributor of hygiene and cleaning products operating across three regions of Brazil, South, Northeast and Southeast, with annual revenue of R$ 18 million and approximately 850 active SKUs, serving pharmacy and supermarket chains.
 
-Initial hypothesis: the company treats all SKUs equally — same replenishment lead time and same minimum stock level — ignoring that 20% of SKUs account for 80% of revenue.
+The operations manager faced two simultaneous complaints that seemed to contradict each other:
+
+The sales team reported losing sales due to out-of-stock items, products running out before replenishment orders arrived. The finance team complained that capital was stuck in inventory, slow-moving products taking up space and money with no return.
+
+**How can a company have excess inventory and stockouts at the same time?**
+
+The initial hypothesis pointed to a simple cause: Distrimax treated all SKUs equally, with the same replenishment lead time and the same minimum stock level, without considering that 20% of SKUs accounted for 80% of revenue.
 
 ---
 
-## 🗄️ Dataset
+## Dataset
 
 The dataset was built with fictitious but realistic data, structured in 4 tables:
 
 | Table | Description | Rows |
 |-------|-------------|------|
-| `dim_sku_ok` | 100 SKUs with ABC curve, cost, and replenishment policy | 100 |
+| `dim_sku_ok` | 100 SKUs with ABC curve, cost and replenishment policy | 100 |
 | `fato_vendas_ok` | Monthly sales by SKU and region with lost revenue due to stockouts | 3,600 |
 | `fato_estoque_ok` | Weekly inventory snapshot by SKU and region with status | 15,900 |
 | `dim_meta_ok` | Ideal replenishment policy by ABC curve | 3 |
 
 ---
 
-## 🔍 SQL Analysis
+## SQL Analysis
 
-Queries were developed in SQLiteOnline and documented with explanations of each technique used.
+Queries were developed in SQLiteOnline and documented with an explanation of each technique used.
 
 ### Query 1 — ABC Curve
-SKU classification by share of total revenue, using **window functions** to calculate cumulative percentage.
+SKU classification by share of total revenue, using window functions to calculate the cumulative percentage.
 
 ```sql
 SELECT
@@ -65,7 +60,7 @@ ORDER BY total_revenue DESC;
 ```
 
 ### Query 2 — Stockout Ranking
-Frequency of critical and stockout status by SKU and region, using **CASE WHEN** to count occurrences by status type.
+Frequency of critical and stockout status by SKU and region, using CASE WHEN to count occurrences by status type.
 
 ```sql
 SELECT
@@ -84,7 +79,7 @@ ORDER BY stockout_count DESC;
 ```
 
 ### Query 3 — Lost Revenue
-Financial impact of stockouts by ABC curve and category, revealing that **C-curve items never lose revenue** (always overstocked).
+Financial impact of stockouts by ABC curve and category, revealing that C-curve items never lose revenue, as inventory is always in excess.
 
 ```sql
 SELECT
@@ -101,7 +96,7 @@ ORDER BY total_lost DESC;
 ```
 
 ### Query 4 — Current Stock vs. Ideal Policy
-Comparison between actual coverage and recommended target — **the query that proves the misalignment of the current policy**.
+Comparison between actual coverage and recommended target, the query that proves the misalignment of the current policy.
 
 ```sql
 SELECT
@@ -121,10 +116,10 @@ ORDER BY s.curva_abc;
 
 ---
 
-## 🔬 Diagnosis — Quality Tools
+## Diagnosis
 
 ### ABC Curve
-The 20 A-curve SKUs represent **~80% of total revenue**, yet operate with an average coverage of only **10 days** — well below the 30 to 45-day target.
+The 20 A-curve SKUs represent approximately 80% of total revenue, yet operate with an average coverage of only 10 days, well below the 30 to 45-day target.
 
 ### Ishikawa Diagram
 Root cause analysis for stockouts in A-curve items:
@@ -146,30 +141,32 @@ Root cause analysis for stockouts in A-curve items:
 
 ---
 
-## 📊 Power BI Dashboard
+## Power BI Dashboard
 
 ### Page 1 — Diagnosis
 
 ![Diagnosis Dashboard](assets/dashboard_diagnostico.png)
 
-**Key findings:**
-- **R$ 194M** in lost revenue due to stockouts during the year
-- A-curve with only **10 days** of average coverage vs. 30-45 day target
-- C-curve with **1,363 days** of coverage — capital completely tied up
-- Cleaning category concentrates the highest loss: **R$ 64M**
+Key findings:
+
+- R$ 194M in lost revenue due to stockouts during the year
+- A-curve with 10 days of average coverage against a 30 to 45-day target
+- C-curve with 1,363 days of coverage, capital completely tied up
+- Cleaning category concentrates the highest loss: R$ 64M
 
 ### Page 2 — Solution
 
 ![Solution Dashboard](assets/dashboard_solucao.png)
 
-**Projected impact with new policy:**
-- A-curve: coverage increases from 10 to **38 days**
-- B-curve: coverage adjusts from 79 to **22 days**
-- C-curve: coverage reduces from 1,363 to **12 days**
+Projected impact with new policy:
+
+- A-curve: coverage increases from 10 to 38 days
+- B-curve: coverage adjusts from 79 to 22 days
+- C-curve: coverage reduces from 1,363 to 12 days
 
 ---
 
-## ✅ Solution — New Replenishment Policy
+## Solution — New Replenishment Policy
 
 | Curve | Minimum Stock | Review Frequency | Policy | Target (days) |
 |-------|--------------|-----------------|--------|---------------|
@@ -177,14 +174,15 @@ Root cause analysis for stockouts in A-curve items:
 | B | 15 to 30 days | Bi-weekly | Reorder point replenishment | 30 |
 | C | 7 to 15 days | Monthly | Minimum periodic replenishment | 15 |
 
-### Estimated Impact
-- **Recoverable revenue:** ~78% of lost revenue on A-curve items
-- **C-curve stock reduction:** -23%
-- **A-curve stockout reduction:** -18%
+Estimated impact:
+
+- Recoverable revenue: approximately 78% of lost revenue on A-curve items
+- C-curve stock reduction: 23%
+- A-curve stockout reduction: 18%
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 distrimax-case/
@@ -204,7 +202,8 @@ distrimax-case/
 
 ---
 
-## 👤 Author
+## Author
 
-Developed as a portfolio case study in BI and Continuous Improvement.  
-[LinkedIn](#) · [Portfolio](#)
+Developed as a portfolio case study in BI and Continuous Improvement by Monithelly Simões.
+
+[LinkedIn](https://www.linkedin.com/in/monithellysimoes)
